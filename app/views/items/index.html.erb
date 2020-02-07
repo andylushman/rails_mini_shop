@@ -14,7 +14,7 @@
       <tr>
         <td><%= "#{item.name}" %></td>
         <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_merchant_item_path(:merchant_id, :item) %></td>
+        <td><%= link_to 'Edit', edit_merchant_item_path(item.merchant, item) %></td>
         <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
