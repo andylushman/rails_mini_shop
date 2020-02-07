@@ -12,8 +12,6 @@ class MerchantsController < ApplicationController
   # GET /merchants/1.json
   def show
     @merchant = Merchant.find(params[:id])
-    binding.pry
-    puts @merchant.inspect
   end
 
   # GET /merchants/new
