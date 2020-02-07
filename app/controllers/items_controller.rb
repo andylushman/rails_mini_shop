@@ -3,12 +3,20 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    puts params[:merchant_id].present?
+    if params[:merchant_id].present?
+      @items = Item.where(merchant_id: params[:merchant_id])
+    else
+      @items = Item.all
+    end
   end
 
   # GET /items/1
   # GET /items/1.json
   def show
+    # binding.pry
+    puts params
+    @item = Item.find(params[:id])
   end
 
   # GET /items/new
@@ -24,12 +32,8 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    puts item_params
     @item = Item.new(item_params)
     respond_to do |format|
-      puts "======================"
-      puts @item.save
-      puts @item.inspect
 
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }

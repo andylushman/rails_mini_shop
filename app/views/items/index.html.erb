@@ -10,7 +10,7 @@
   </thead>
 
   <tbody>
-    <% @items.each do |item| %>
+    <% @items&.each do |item| %>
       <tr>
         <td><%= "#{item.name}" %></td>
         <td><%= link_to 'Show', item %></td>
@@ -23,5 +23,5 @@
 
 <br>
 
-<%= link_to 'New Item', new_merchant_item_path %>
-<%= link_to 'Back', merchant_path(params[:merchant_id]) %>
+<%= link_to 'New Item', new_merchant_item_path if params[:merchant_id] %>
+<%= link_to 'Back', merchant_path(params[:merchant_id]) if params[:merchant_id] %>
