@@ -2,3 +2,13 @@
 
 <%= link_to 'Edit', edit_merchant_path(@merchant) %> |
 <%= link_to 'Back', merchants_path %>
+
+<h1><%= @merchant.name %></h1>
+<h3>Address Info</h3>
+<p>Address: <%= @merchant.address %></p>
+<p>City: <%= @merchant.city %></p>
+<p>State: <%= @merchant.state %></p>
+<p>Zip: <%= @merchant.zip %></p>
+
+
+<h3>Items</h3>
