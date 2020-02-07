@@ -1,6 +1,16 @@
 <%= form_with(model: item, local: true) do |form| %>
   <%= form.label :name %><br/>
   <%= form.text_field :name %>
+  <%= form.label :description %><br/>
+  <%= form.text_field :description %>
+  <%= form.label :price %><br/>
+  <%= form.text_field :price %>
+  <%= form.label :image %><br/>
+  <%= form.text_field :image %>
+  <%= form.label :active %><br/>
+  <%= form.text_field :active %>
+  <%= form.label :inventory %><br/>
+  <%= form.text_field :inventory %>
 
   <% if item.errors.any? %>
     <div id="error_explanation">
