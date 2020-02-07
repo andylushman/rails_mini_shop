@@ -1,6 +1,5 @@
+require 'pry'
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
-
   # GET /items
   # GET /items.json
   def index
@@ -19,17 +18,22 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
-    binding.pry
+
   end
 
   # POST /items
   # POST /items.json
   def create
+    puts item_params
     @item = Item.new(item_params)
     respond_to do |format|
+      puts "======================"
+      puts @item.save
+      puts @item.inspect
+
       if @item.save
-        format.html { redirect_to @merchant, notice: 'Item was successfully created.' }
-        format.json { render :show, status: :created, location: @merchant }
+        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
         format.json { render json: @item.errors, status: :unprocessable_entity }
@@ -69,6 +73,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :description, :price, :image, :active, :inventory)
+      params.require(:item).permit(:name, :description, :price, :image, :active, :inventory).merge(merchant_id: params[:merchant_id])
     end
 end
