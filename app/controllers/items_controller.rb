@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+    binding.pry
   end
 
   # POST /items
