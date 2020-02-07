@@ -28,8 +28,8 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
-        format.json { render :show, status: :created, location: @item }
+        format.html { redirect_to @merchant, notice: 'Item was successfully created.' }
+        format.json { render :show, status: :created, location: @merchant }
       else
         format.html { render :new }
         format.json { render json: @item.errors, status: :unprocessable_entity }
