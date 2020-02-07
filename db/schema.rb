@@ -16,13 +16,27 @@ ActiveRecord::Schema.define(version: 2020_02_07_162956) do
   enable_extension "plpgsql"
 
   create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "price"
+    t.string "image"
+    t.boolean "active"
+    t.integer "inventory"
+    t.bigint "merchant_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["merchant_id"], name: "index_items_on_merchant_id"
   end
 
   create_table "merchants", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "items", "merchants"
 end
