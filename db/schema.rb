@@ -29,11 +29,6 @@ ActiveRecord::Schema.define(version: 2020_02_07_162956) do
   end
 
   create_table "merchants", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.string "city"
-    t.string "state"
-    t.string "zip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
