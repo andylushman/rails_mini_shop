@@ -14,8 +14,6 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-    # binding.pry
-    puts params
     @item = Item.find(params[:id])
   end
 
@@ -26,7 +24,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
-
+    @item = Item.find(params[:id])
   end
 
   # POST /items

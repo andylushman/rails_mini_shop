@@ -1,4 +1,7 @@
-<%= form_with(model: @item, url: :merchant_items) do |form| %>
+
+
+<%= form_with(model: @item, url: :merchant_item) do |form| %>
+    <% puts :merchant_items %>
   <%= form.label :name %><br/>
   <%= form.text_field :name %>
   <%= form.label :description %><br/>
