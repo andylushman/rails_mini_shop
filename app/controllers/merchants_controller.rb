@@ -1,3 +1,4 @@
+require 'pry'
 class MerchantsController < ApplicationController
   before_action :set_merchant, only: [:show, :edit, :update, :destroy]
 
@@ -10,6 +11,9 @@ class MerchantsController < ApplicationController
   # GET /merchants/1
   # GET /merchants/1.json
   def show
+    @merchant = Merchant.find(params[:id])
+    binding.pry
+    puts @merchant.inspect
   end
 
   # GET /merchants/new
@@ -69,6 +73,6 @@ class MerchantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def merchant_params
-      params.fetch(:merchant, {})
+      params.require(:merchant).permit(:name, :address, :city, :state, :zip)
     end
 end
